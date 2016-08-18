@@ -16,14 +16,15 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoibWFkZWxlaW5lLXJhc2hicm9va2UiLCJhIjoiY2lyeDVqdXRmMDA4OTJ5b2ZxZXc1dDg5dCJ9.6kyfgf7klxvu7UizZNzA9A';
+
 var geojson = [
   {
     "type": "Feature",
     "geometry": {
       "type": "LineString",
       "coordinates": [
-        [174.7242, -41.2963],
-        [174.7242, -41.2973]
+        [174.7542, -41.2963],
+        [174.7542, -41.3063]
       ]
     },
     "properties": {
@@ -33,10 +34,18 @@ var geojson = [
   }
 ];
 
-var map = L.mapbox.map('map', 'madeleine-rashbrooke.158n2ahj')
-  .setView([-41.2963, 174.7242], 12);
+var map = L.mapbox.map('map', 'mapbox.streets')
+  .setView([-41.2963, 174.7742], 15);
 
 L.geoJson(geojson, { style: L.mapbox.simplestyle.style }).addTo(map);
+
+var featureLayer = L.mapbox.featureLayer()
+  .loadID('madeleine-rashbrooke.158n2ahj')
+  .addTo(map)
+
+featureLayer.setFilter(function() { return false; })
+  .addTo(map)
+
 </script>
 </body>
 </html>
