@@ -28,7 +28,7 @@ var geojson = [
       ]
     },
     "properties": {
-      "stroke": "#fc4353",
+      "stroke": "#ffaaaa",
       "stroke-width": 5
     }
   }
@@ -40,10 +40,9 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 L.geoJson(geojson, { style: L.mapbox.simplestyle.style }).addTo(map);
 
 var featureLayer = L.mapbox.featureLayer()
-  .loadID('madeleine-rashbrooke.158n2ahj')
-  .addTo(map)
-
-featureLayer.setFilter(function() { return false; })
+  .loadID("madeleine-rashbrooke.15b5e4nd")
+  //.loadID('madeleine-rashbrooke.158n2ahj')
+  // .setFilter(function() { return false; })
   .addTo(map)
 
 </script>
